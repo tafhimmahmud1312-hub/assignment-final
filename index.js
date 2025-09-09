@@ -2,7 +2,7 @@
 const loadCategory = () => {
   fetch("https://openapi.programming-hero.com/api/categories")
     .then((res) => res.json())
-    // .then((json) => displayLesson(json.data));
+
     .then((json) => displayCategory(json.categories));
 };
 
