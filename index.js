@@ -35,6 +35,7 @@ const displayCart = () => {
       <span>৳${item.price}</span>
     `;
     cartContainer.appendChild(div);
+    alert("Item add to cart");
   });
 
   //---------------------------------------------------------- Total sum
