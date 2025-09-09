@@ -27,7 +27,7 @@
     <header>
       <!-------------------------------- navbaar ---------------------------------->
       <nav>
-        <div class="navbar bg-[#15803D] shadow-sm px-18">
+        <div class="navbar bg-[#15803D] shadow-sm lg:px-18">
           <div class="navbar-start">
             <div class="dropdown">
               <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -50,15 +50,15 @@
                 tabindex="0"
                 class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
-                <li><a>Item 1</a></li>
+                <li><a>About</a></li>
                 <li>
-                  <a>Parent</a>
-                  <ul class="p-2">
+                  <a>Gallery</a>
+                  <!-- <ul class="p-2">
                     <li><a>Submenu 1</a></li>
                     <li><a>Submenu 2</a></li>
-                  </ul>
+                  </ul> -->
                 </li>
-                <li><a>Item 3</a></li>
+                <li><a>Plant Tree</a></li>
               </ul>
             </div>
             <a class="btn btn-ghost text-xl text-white">Green Earth</a>
@@ -69,10 +69,10 @@
               <li>
                 <details>
                   <summary>Gallery</summary>
-                  <ul class="p-2">
+                  <!-- <ul class="p-2">
                     <li><a>Submenu 1</a></li>
                     <li><a>Submenu 2</a></li>
-                  </ul>
+                  </ul> -->
                 </details>
               </li>
               <li><a>Plant a Tree</a></li>
@@ -91,20 +91,22 @@
       <section>
         <div class="flex items-center justify-between bg-[#cff0dc]">
           <div>
-            <img src="./assets/hero-leaf1.png" alt="" />
+            <img class="hidden lg:block" src="./assets/hero-leaf1.png" alt="" />
           </div>
           <div class="text-center">
-            <h1 class="text-5xl font-semibold">Plant a Tree, Grow a Future</h1>
+            <h1 class="text-5xl font-semibold mt-3">
+              Plant a Tree, Grow a Future
+            </h1>
             <p class="font-medium text-[16px] mt-4 mb-8 text-gray-500">
               Join our mission to plant 1 million trees and make the Earth
               greener for future generations.
             </p>
-            <a class="btn rounded-full px-6 bg-[#FACC15] text-[green]"
+            <a class="btn rounded-full px-6 mb-3 bg-[#FACC15] text-[green]"
               >Get Involved</a
             >
           </div>
           <div>
-            <img src="./assets/hero-leaf2.png" alt="" />
+            <img class="hidden lg:block" src="./assets/hero-leaf2.png" alt="" />
           </div>
         </div>
       </section>
@@ -114,25 +116,35 @@
 
     <main>
       <section>
-        <h1 class="text-center mt-[80px] mb-[30px] text-3xl font-semibold">
+        <h1
+          class="text-center mt-[20px] lg:mt-[80px] mb-[30px] text-3xl font-semibold"
+        >
           Choose Your Trees
         </h1>
       </section>
-      <section class="flex justify-between gap-[30px] px-[50px]">
-        <div id="category-section" class="w-[250px]">
-          <h1 class="text-xl font-semibold">Category</h1>
+      <section class="lg:flex lg:justify-between gap-[30px] lg:px-[50px]">
+        <div class="lg:w-[250px]">
+          <h1 class="text-center lg:text-left text-xl font-semibold">
+            Category
+          </h1>
           <button
-            class="mt-4 hover:bg-[#15803d] hover:text-white p-2 hover:rounded-md hover: font-semibold hover:btn-wide hover:w-full hover:text-left"
+            class="ml-[40%] mt-4 hover:bg-[#15803d] hover:text-white p-2 hover:rounded-md hover: font-semibold hover:btn-wide hover:w-full hover:text-left"
           >
             All Trees
           </button>
+          <div id="category-section" class="lg:grid lg:grid-cols-1"></div>
         </div>
 
-        <div id="tree-container" class="w-4/5 grid grid-cols-3 gap-2 mx-auto">
+        <div
+          id="tree-container"
+          class="lg:w-4/5 lg:grid lg:grid-cols-3 gap-3 lg:mx-auto"
+        >
           <!-- <img class="w-[298px] h-[178px]" src="" alt="" /> -->
         </div>
-        <div class="w-[250px] text-xl font-semibold bg-white p-3 rounded-xl">
-          Your Cart
+        <div class="lg:w-[250px] bg-white p-3 rounded-xl">
+          <h1 class="text-xl font-semibold">Your cart</h1>
+          <div id="cart-container"></div>
+          <h2 id="cart-total" class="font-bold mt-2"></h2>
         </div>
       </section>
     </main>

@@ -6,6 +6,60 @@ const loadCategory = () => {
     .then((json) => displayCategory(json.categories));
 };
 
+//----------------------------------------------------------cart div--------------------------
+let cart = [];
+const addToCart = (name, price) => {
+  const item = { name, price };
+  cart.push(item);
+  displayCart();
+};
+
+const displayCart = () => {
+  const cartContainer = document.getElementById("cart-container");
+  cartContainer.innerHTML = "";
+
+  cart.forEach((item) => {
+    const div = document.createElement("div");
+    div.classList.add(
+      "flex",
+      "justify-between",
+      "items-center",
+      "p-2",
+      "bg-[#cff0dc]",
+      "mb-1",
+      "rounded-md",
+      "w-full"
+    );
+    div.innerHTML = `
+      <span>${item.name}</span>
+      <span>৳${item.price}</span>
+    `;
+    cartContainer.appendChild(div);
+  });
+
+  //---------------------------------------------------------- Total sum
+
+  const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
+
+  // ----------------------------------------------------------cart line
+
+  const totalDiv = document.createElement("div");
+  totalDiv.classList.add(
+    "flex",
+    "justify-between",
+    "items-center",
+    "p-2",
+    "font-bold",
+    "mt-2"
+  );
+  totalDiv.innerHTML = `
+    <span>Total</span>
+    <span>৳${total}</span>
+  `;
+
+  cartContainer.appendChild(totalDiv);
+};
+
 // -------------------------------------show all plant------------------------------
 
 const displayDetailsCategory = () => {
@@ -32,33 +86,23 @@ const detailsCategory = (plants) => {
                 ৳${plant.price}
               </span>
             </div>
-            <button class="btn w-full rounded-full mt-auto bg-green-700 text-white">Add to Cart</button>
+            <button onclick="addToCart('${plant.name}',${plant.price})" class="btn w-full rounded-full mt-auto bg-green-700 text-white">Add to Cart</button>
             
           </div>`;
     detailsCOmntainer.append(creatdiv);
   }
 };
 
-//------------------------------ onclick=loadcategory----------------
-
-const loadcategoryid = (id) => {
-  const url = `https://openapi.programming-hero.com/api/categories/${id}`;
-  //   console.log(url);
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => console.log(data));
-};
-
 // -----------------------------------display category list-------------------------------
 
 const displayCategory = (categories) => {
   const categoryContainer = document.getElementById("category-section");
-  //   categoryContainer.innerHTML = "";
+  categoryContainer.innerHTML = "";
   for (let categori of categories) {
     // console.log(categori);
     const btndiv = document.createElement("div");
     btndiv.innerHTML = `
-    <button onclick="loadcategoryid('${categori.category_id}')" class=" hover:bg-[#15803d] hover:text-white p-2 hover:rounded-md hover:text-left hover:w-full font-semibold hover:btn-wide"">${categori.category_name}</button>`;
+    <button onclick="loadcategoryid('${categori.category_id}')" class=" ml-[40%] lg:mx-auto hover:bg-[#15803d] hover:text-white p-2 hover:rounded-md hover:text-left hover:w-full font-semibold hover:btn-wide"">${categori.category_name}</button>`;
     categoryContainer.append(btndiv);
     // categoryContainer.innerHTML = "";
   }
